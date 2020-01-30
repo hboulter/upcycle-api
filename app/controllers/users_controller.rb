@@ -20,7 +20,7 @@ class UsersController < ApplicationController
             password_confirmation: params['user']['password_confirmation']
         )
         if user
-            session[user_id] = user.id
+            session[:user_id] = user.id
             render json: {
                 status: :created,
                 user: user
@@ -29,4 +29,5 @@ class UsersController < ApplicationController
             render json: { status: 500 }
         end
     end
+
 end
