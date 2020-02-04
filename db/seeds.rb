@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+post1 = Post.create(
+    user_id: 1,
+    lat: 33.5979,
+    lng: -117.8730,
+    status: true,
+    condition: "Fair",
+    description: "Corner of Lane & High"
+);
+
+post1.image.attach(
+    io: File.open("./public/images/couch.jpg"),
+    filename: "couch.jpg",
+    content_type: "application/jpg"
+)
