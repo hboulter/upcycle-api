@@ -6,11 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Post.destroy_all
+
 post1 = Post.create(
     user_id: 1,
     lat: 33.5979,
     lng: -117.8730,
     status: true,
+    title: "Furniture",
     condition: "Fair",
     description: "Corner of Lane & High"
 );
