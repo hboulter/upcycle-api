@@ -1,19 +1,14 @@
 class PostsController < ApplicationController
     def index
         posts = Post.all
-        render json: { posts: posts }
+        posts_with_images = posts.map{ |post| { post: post, image: rails_blob_path(post.image) }}
+        render json: posts_with_images
     end
 
     def show
         post = Post.find(params[:id])
         image = rails_blob_path(post.image)
-
-        if user.password == params[:password]
-            render json: {post: post, image: image}
-        else
-            render json: { message: 'This user is not authenticated'}
-        render json: post
-        end
+        render json: { post: post, image: image }
     end
 
     def create
@@ -32,7 +27,7 @@ class PostsController < ApplicationController
     private
 
     def post_params
-        params.require(:post).permit(:user_id, :lat, :lng, :status, :condition, :description, :image)
+        params.require(:post).permit(:user_id, :lat, :lng, :status, :title, :condition, :description, :image)
     end
 
 end
