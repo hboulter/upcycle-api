@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    include Rails.application.routes.url_helpers
+
     def index
         posts = Post.all
         posts_with_images = posts.map{ |post| { post: post, image: rails_blob_path(post.image) }}
@@ -7,7 +9,7 @@ class PostsController < ApplicationController
 
     def show
         post = Post.find(params[:id])
-        image = rails_blob_path(post.image)
+        image = rails_blob_path(post.image, disposition: "attachment", only_path: true)
         render json: { post: post, image: image }
     end
 
