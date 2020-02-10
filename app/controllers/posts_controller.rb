@@ -26,6 +26,13 @@ class PostsController < ApplicationController
         render json: { post: post, image_url: image_url }
     end
 
+    def post_update
+        post = Post.find(params[:id])
+        post.update(post_params)
+        image_url = rails_blob_path(post.image)
+        render json: { post: post, image_url: image_url }
+    end
+
     private
 
     def post_params
