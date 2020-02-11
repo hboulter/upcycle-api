@@ -8,18 +8,18 @@
 
 Post.destroy_all
 
-# post1 = Post.create(
-#     user_id: 1,
-#     lat: 33.5979,
-#     lng: -117.8730,
-#     status: true,
-#     title: "Furniture",
-#     condition: "Fair",
-#     description: "Corner of Lane & High"
-# );
+post1 = Post.create(
+    user_id: 1,
+    lat: 33.5979,
+    lng: -117.8730,
+    status: true,
+    title: "Furniture",
+    condition: "Fair",
+    description: "Corner of Lane & High"
+);
 
-# post1.image.attach(
-#     io: File.open("./public/images/couch.jpg"),
-#     filename: "couch.jpg",
-#     content_type: "application/jpg"
-# )
+post1.image.attach(
+    io: File.open("./public/images/couch.jpg"),
+    filename: "couch.jpg",
+    content_type: "application/jpg"
+)

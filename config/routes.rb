@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   delete :logout, to: "sessions#logout"
   get :logged_in, to: "sessions#logged_in"
   post "/rails/active_storage/direct_uploads", to: "direct_uploads#create"
+  delete '/posts', to: 'posts#cleanup'
 end

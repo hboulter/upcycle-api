@@ -31,7 +31,7 @@ class UsersController < ApplicationController
                 user: user
             }
         else
-            render json: { status: 500 }
+            render json: { error: 500 }
         end
     end
 
