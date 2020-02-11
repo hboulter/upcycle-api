@@ -33,6 +33,18 @@ class PostsController < ApplicationController
         render json: { post: post, image_url: image_url }
     end
 
+    def destroy
+        post = Post.find(params[:id])
+        if post
+            post.destroy
+            render json: { message: 'deleted post', id: post.id };
+        end
+    end
+
+    def cleanup
+        Post.where(['created_at < ?', 7.days.ago]).destroy_all
+    end
+
     private
 
     def post_params
