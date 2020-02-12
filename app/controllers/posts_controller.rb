@@ -2,7 +2,7 @@ class PostsController < ApplicationController
     include Rails.application.routes.url_helpers
 
     def index
-        posts = Post.all
+        posts = Post.all.order(id: :asc)
         posts_with_images = posts.map{ |post| { post: post, image: rails_blob_path(post.image) }}
         render json: posts_with_images
     end
